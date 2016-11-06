@@ -5,8 +5,7 @@ public class player_move : MonoBehaviour {
 
 	public float hitrost = 4f;
 	public float skok = 0.1f;
-
-	
+	public bool skokaktiven = false;
 
 
 	void skoci(){
@@ -46,13 +45,20 @@ public class player_move : MonoBehaviour {
 			desno ();
 		}
 
-		if (Input.GetKey("space")) {
-				
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0,skok), ForceMode2D.Impulse);
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			if (skokaktiven == false) {
+
+					GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, skok), ForceMode2D.Impulse);
+					
+
+			}
 
 		}
-
-
 	}
 
+	void OnCollisionEnter2D(Collision2D trk){
+		if (trk.gameObject.tag == "tla") { 
+			skokaktiven = false;
+		}
+	}
 }
