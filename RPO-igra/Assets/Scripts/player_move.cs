@@ -6,9 +6,10 @@ public class player_move : MonoBehaviour {
 	public float hitrost = 4f;
 	public float skok = 0.1f;
 	public bool skokaktiven = false;
+    public Vector3 respawnPoint;
+    public LevelManager gameLevelManager;
 
-
-	void skoci(){
+    void skoci(){
 		if(Input.GetKey(KeyCode.Space)){
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1), ForceMode2D.Impulse);
 		}
@@ -25,8 +26,10 @@ public class player_move : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-	
-	}
+        respawnPoint = transform.position;
+        gameLevelManager = FindObjectOfType<LevelManager>();
+
+    }
 
 
 	// Update is called once per frame
@@ -61,4 +64,19 @@ public class player_move : MonoBehaviour {
 			skokaktiven = false;
 		}
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "FallDetector")
+        {
+            gameLevelManager.Respawn();
+        }
+        if (other.tag == "Checkpoint")
+        {
+            respawnPoint = other.transform.position;
+        }
+    }
+
+
+
 }
