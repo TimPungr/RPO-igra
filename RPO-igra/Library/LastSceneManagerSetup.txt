@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/primer.unity
+- path: Assets/Scene/lvl 1.1.unity
   isLoaded: 1
   isActive: 1
