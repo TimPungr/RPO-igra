@@ -29,9 +29,20 @@ public class LevelManager : MonoBehaviour
         gamePlayer.transform.position = gamePlayer.respawnPoint;
         gamePlayer.gameObject.SetActive(true);
     }
+
+   
     public void AddCoins(int numberOfCoins)
     {
         coins += numberOfCoins;
+      
         coinText.text = "Coins: " + coins;
+    }
+
+    void OnGUI()
+    {
+        if (GUI.Button(new Rect(Screen.width / 2 + 340, Screen.height / 2 - 170, 100, 40), "Return to menu"))
+        {
+            Application.LoadLevel(8);
+        }
     }
 }
