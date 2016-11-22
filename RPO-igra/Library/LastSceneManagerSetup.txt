@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scene/lvl 2.1.unity
+=======
+- path: Assets/Scene/lvl 2.3.unity
+>>>>>>> origin/lol
   isLoaded: 1
   isActive: 1

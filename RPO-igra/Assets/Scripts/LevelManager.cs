@@ -30,11 +30,19 @@ public class LevelManager : MonoBehaviour
         gamePlayer.gameObject.SetActive(true);
     }
 
+<<<<<<< HEAD
 
     public void AddCoins(int numberOfCoins)
     {
         coins += numberOfCoins;
 
+=======
+   
+    public void AddCoins(int numberOfCoins)
+    {
+        coins += numberOfCoins;
+      
+>>>>>>> origin/lol
         coinText.text = "Coins: " + coins;
     }
 

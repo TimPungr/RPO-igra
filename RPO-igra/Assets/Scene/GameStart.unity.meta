@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a9e54c7c492fcca4e9de3a7f588157b0
 timeCreated: 1479820532
+=======
+guid: f344a4d0e4bebc64c96fbdf98790b16e
+timeCreated: 1479108942
+>>>>>>> origin/lol
 licenseType: Free
 DefaultImporter:
   userData: 
