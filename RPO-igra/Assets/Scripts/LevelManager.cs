@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
         gamePlayer = FindObjectOfType<player_move>();
         coinText.text = "Coins: " + coins;
     }
-    
+
     void Update()
     {
 
@@ -30,11 +30,11 @@ public class LevelManager : MonoBehaviour
         gamePlayer.gameObject.SetActive(true);
     }
 
-   
+
     public void AddCoins(int numberOfCoins)
     {
         coins += numberOfCoins;
-      
+
         coinText.text = "Coins: " + coins;
     }
 
@@ -44,5 +44,10 @@ public class LevelManager : MonoBehaviour
         {
             Application.LoadLevel(8);
         }
+    if (Input.GetKey(KeyCode.Escape))
+    {
+        Application.LoadLevel(8);
+
     }
+}
 }

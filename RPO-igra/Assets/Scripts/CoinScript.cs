@@ -12,22 +12,22 @@ public class CoinScript : MonoBehaviour
     {
         gameLevelManager = FindObjectOfType<LevelManager>();
     }
-    
+
     void Update()
     {
 
     }
-   // public AudioClip audio;
 
-  
+    public AudioClip zvok;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "player")
         {
-         //   AudioSource audio = GetComponent<AudioSource>();
             gameLevelManager.AddCoins(coinValue);
-          //  audio.Play();
+            AudioSource.PlayClipAtPoint(zvok, other.transform.position);
             Destroy(gameObject);
         }
+
     }
+
 }

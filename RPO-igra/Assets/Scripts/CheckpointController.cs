@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+[RequireComponent(typeof(AudioSource))]
 
 public class CheckpointController : MonoBehaviour {
 
@@ -18,11 +19,13 @@ public class CheckpointController : MonoBehaviour {
 	
 	}
 
+    public AudioClip zvok;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "player")
         {
             checkpointSpriteRenderer.sprite = blueFlag;
+            AudioSource.PlayClipAtPoint(zvok, other.transform.position);
             checkpointReached = true;
         }
     }
