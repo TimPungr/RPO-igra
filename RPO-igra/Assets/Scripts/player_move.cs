@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+[RequireComponent(typeof(AudioSource))]
 
 public class player_move : MonoBehaviour
 {
-
+    public AudioClip zvok;
+    //
     public float hitrost = 10;
     public float skok = 2;
     public bool natleh = false;
@@ -47,6 +49,7 @@ public class player_move : MonoBehaviour
     {
         if (natleh)
         {
+            AudioSource.PlayClipAtPoint(zvok, transform.position);
             player.velocity += skok * Vector2.up;
             player.AddForce(new Vector2(0, skok), ForceMode2D.Impulse);
         }

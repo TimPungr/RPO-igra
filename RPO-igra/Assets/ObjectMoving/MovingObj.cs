@@ -5,9 +5,11 @@ public class MovingObj : MonoBehaviour {
 
  public float hitrost;
  public float razdalja;
- 
- private Vector3 tempP;
+ //public float razdaljaY;
+ //public float razdaljaX;
 
+    private Vector3 tempP;
+   
  void Start () 
   {
         tempP = transform.position;
@@ -16,8 +18,9 @@ public class MovingObj : MonoBehaviour {
  
  void Update () 
   {
- 
-  tempP.y = Mathf.Sin(Time.realtimeSinceStartup * hitrost)* razdalja;
-  transform.position = tempP;
+        tempP.y = Mathf.Sin(Time.realtimeSinceStartup * hitrost) * razdalja;
+        //tempP.y = Mathf.Sin(Time.realtimeSinceStartup * hitrost)* razdaljaY;
+        //tempP.x = Mathf.Sin(Time.realtimeSinceStartup * hitrost) * razdaljaX;
+        transform.position = tempP;
  }
 }

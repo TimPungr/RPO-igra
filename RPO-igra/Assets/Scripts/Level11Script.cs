@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
 public class Level11Script : MonoBehaviour {
-	
-	// Use this for initialization
-	
-	void OnTriggerEnter2D(Collider2D other){
+    public int stTegaLv;
+    // Use this for initialization
+
+    void OnTriggerEnter2D(Collider2D other){
 		//if the object that triggered the event is tagged player
 		if (other.tag == "player") {
-			Application.LoadLevel(2);
+			Application.LoadLevel(stTegaLv+1);
 		}
 		
 //		if (other.gameObject.transform.parent) {

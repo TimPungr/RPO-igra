@@ -65,18 +65,13 @@
   <ItemGroup>
     <Compile Include="Assets\DayAndNight\DayNightCycle.cs" />
     <Compile Include="Assets\ObjectMoving\MovingObj.cs" />
+    <Compile Include="Assets\ObjectMoving\MovingObjX.cs" />
     <Compile Include="Assets\Scripts\CheckpointController.cs" />
     <Compile Include="Assets\Scripts\CoinScript.cs" />
     <Compile Include="Assets\Scripts\DestroyScript.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\Hover_nasprotnik.cs" />
     <Compile Include="Assets\Scripts\Level11Script.cs" />
-    <Compile Include="Assets\Scripts\Level12Script.cs" />
-    <Compile Include="Assets\Scripts\Level13Script.cs" />
-    <Compile Include="Assets\Scripts\Level14Script.cs" />
-    <Compile Include="Assets\Scripts\Level21Script.cs" />
-    <Compile Include="Assets\Scripts\Level22Script.cs" />
-    <Compile Include="Assets\Scripts\Level23Script.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\enemydamagecontroller.cs" />
     <Compile Include="Assets\Scripts\leteci_nasprotnik.cs" />
