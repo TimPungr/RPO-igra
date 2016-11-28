@@ -15,11 +15,13 @@ public class player_move : MonoBehaviour
     Rigidbody2D player;
     public Vector3 respawnPoint;
     public LevelManager gameLevelManager;
+    private bool obrnjenNaprej;
 
 
     // Use this for initialization
     void Start()
     {
+        obrnjenNaprej = true;
         player = this.GetComponent<Rigidbody2D>();
         mytrans = this.transform;
         tla = GameObject.Find(this.name + "/tla").transform;
@@ -58,9 +60,25 @@ public class player_move : MonoBehaviour
 
     public void gibanje(float horizontalno)
     {
+        obrniIgralca(horizontalno);
         Vector2 moveVel = player.velocity;
         moveVel.x = horizontalno * hitrost;
         player.velocity = moveVel;
+        
+    }
+
+    public void obrniIgralca(float horizontalno)
+    {
+        if(horizontalno > 0 && !obrnjenNaprej || horizontalno < 0 && obrnjenNaprej)
+        {
+            obrnjenNaprej = !obrnjenNaprej;
+
+            Vector3 velikost = transform.localScale;
+
+            velikost.x *= -1;
+
+            transform.localScale = velikost;
+        }
     }
 
 
