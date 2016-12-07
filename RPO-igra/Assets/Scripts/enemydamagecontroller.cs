@@ -3,6 +3,9 @@ using System.Collections;
 
 public class enemydamagecontroller : MonoBehaviour {
 
+
+    public float bounce = 5f;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -18,7 +21,15 @@ public class enemydamagecontroller : MonoBehaviour {
             /*
             col.zivljenje -=skoda;
             */
-            Destroy(col.gameObject);
+            //Destroy(col.gameObject);
+            if(col.gameObject.GetComponent<Rigidbody2D>().velocity.y < 1)
+            {
+                Destroy(gameObject);
+                col.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, GetComponent<Rigidbody2D>().velocity.y + bounce);
+            } else
+            {
+                Destroy(col.gameObject);
+            }
         }
     }
     // Update is called once per frame

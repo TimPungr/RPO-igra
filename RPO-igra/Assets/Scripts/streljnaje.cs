@@ -4,7 +4,7 @@ using System.Collections;
 public class streljnaje : MonoBehaviour {
     public float razdalja;
 
-    public GameObject metek;
+    //public GameObject metek;
 
     public Transform igralec;
 
@@ -20,6 +20,16 @@ public class streljnaje : MonoBehaviour {
 
     public float casMedStreli;
 
+    public Rigidbody2D metekclone;
+
+    public float hitrost;
+
+    void strel()
+    {
+        Rigidbody Clone = (Rigidbody)Instantiate(metekclone, cannon.position, transform.rotation);
+        Clone.velocity = transform.right * hitrost;
+    }
+
     // Use this for initialization
     void Start () {
         igralec = GameObject.Find("player").transform;
@@ -32,8 +42,9 @@ public class streljnaje : MonoBehaviour {
         CollPlayer = Physics2D.Linecast(transform.position, rangecast.position, player);
         if (CollPlayer && timer < 0)
         {
-            Instantiate(metek, cannon);
             timer = casMedStreli;
+            strel();
+            
         }
 
 	}

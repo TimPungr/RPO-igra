@@ -12,16 +12,16 @@ public class metek : MonoBehaviour {
         igralec = GameObject.Find("player").transform;
         taRigidBody = GetComponent<Rigidbody2D>();
 
-        if (igralec.position.x < transform.position.x)
+       /* if (igralec.position.x < transform.position.x)
         {
             hitrost = -hitrost;
-        }
+        }*/
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        taRigidBody.velocity = new Vector2(hitrost, taRigidBody.velocity.y);
+        taRigidBody.velocity = /*new Vector2(hitrost, taRigidBody.velocity.y)*/transform.right * hitrost * -1;
         Destroy(gameObject, Cas);
 	}
 

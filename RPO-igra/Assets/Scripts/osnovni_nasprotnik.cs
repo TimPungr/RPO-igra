@@ -14,11 +14,12 @@ public class osnovni_nasprotnik : MonoBehaviour {
     public Vector2 konecTla2;
 
 
-
+    public bool collidingNasprotnik;
     public bool collidingTla;
     public bool collidingZrak;
     public LayerMask Zrak;
     public LayerMask Tla;
+    public LayerMask Nasprotnik;
 
     /*void OnCollisionEnter2D(Collision2D col)
     {
@@ -36,9 +37,9 @@ public class osnovni_nasprotnik : MonoBehaviour {
 
         collidingZrak = Physics2D.Linecast(transform.position, konecZrak, Zrak);
         collidingTla = Physics2D.Linecast(konecTla2, konecTla1, Tla);
+        collidingNasprotnik = Physics2D.Linecast(konecTla2, konecTla1, Nasprotnik);
 
-
-        if (!collidingZrak || collidingTla)
+        if (!collidingZrak || collidingTla || collidingNasprotnik)
         {
 
             transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
