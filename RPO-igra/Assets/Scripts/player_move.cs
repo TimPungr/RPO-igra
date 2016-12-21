@@ -16,7 +16,18 @@ public class player_move : MonoBehaviour
     public Vector3 respawnPoint;
     public LevelManager gameLevelManager;
     private bool obrnjenNaprej;
+    public bool canMove;
+    public int interactionCounter = 0;
+    private DialogueManager dMan;
+    public string dialogue;
 
+
+    public static void MyDelay(int seconds)
+    {
+        System.DateTime dt = System.DateTime.Now + System.TimeSpan.FromSeconds(seconds);
+
+        do { } while (System.DateTime.Now < dt);
+    }
 
     // Use this for initialization
     void Start()
@@ -27,6 +38,7 @@ public class player_move : MonoBehaviour
         tla = GameObject.Find(this.name + "/tla").transform;
         respawnPoint = transform.position;
         gameLevelManager = FindObjectOfType<LevelManager>();
+        canMove = true;
 
     }
 
@@ -34,11 +46,16 @@ public class player_move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void FixedUpdate()
     {
+        if (!canMove)
+        {
+            return;
+        }
+
         natleh = Physics2D.Linecast(mytrans.position, tla.position,playerMask);
         gibanje(Input.GetAxisRaw("Horizontal"));
         if (Input.GetButtonDown("Jump"))
@@ -83,6 +100,8 @@ public class player_move : MonoBehaviour
 
 
 
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "FallDetector")
@@ -93,7 +112,11 @@ public class player_move : MonoBehaviour
         {
             respawnPoint = other.transform.position;
         }
+
+      
+       
     }
+
 
 
 
