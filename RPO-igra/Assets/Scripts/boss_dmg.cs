@@ -16,6 +16,8 @@ public class boss_dmg : MonoBehaviour {
     public Transform turretlocation;
 
     public Transform turretlocation2;
+
+    public GameObject konec;
     // Use this for initialization
     void Start () {
         timer = casMedSkodo;
@@ -49,6 +51,7 @@ public class boss_dmg : MonoBehaviour {
         timer -= Time.deltaTime;
         if (zivljenje <= 0)
         {
+            Destroy(konec);
             Destroy(transform.parent.gameObject);
         }
     }
