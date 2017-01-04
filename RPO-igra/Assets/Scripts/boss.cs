@@ -10,6 +10,9 @@ public class boss : MonoBehaviour {
 
     public Transform igralec;
 
+    public Transform cannon;
+    public Transform cannon2;
+
     // Use this for initialization
     void Start () {
 	
@@ -23,6 +26,8 @@ public class boss : MonoBehaviour {
         if (Mathf.Sign(igralec.position.x - transform.position.x) != Mathf.Sign(transform.localScale.x))
         {
             transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+            cannon.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+            cannon2.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         }
 
     }

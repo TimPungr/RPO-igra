@@ -13,6 +13,8 @@ public class boss_dmg : MonoBehaviour {
 
     public Rigidbody2D turretclone;
 
+    public Rigidbody2D turretclone2;
+
     public Transform turretlocation;
 
     public Transform turretlocation2;
@@ -24,12 +26,19 @@ public class boss_dmg : MonoBehaviour {
 	}
     //col.gameObject.GetComponent<Rigidbody2D>().velocity.y< 1 && 
 
-    void klon(Rigidbody2D klon, Transform lokacija)
+    void klon(Rigidbody2D klon, Transform lokacija, Rigidbody2D klon2, Transform lokacija2)
+    {
+        Rigidbody Clone = (Rigidbody)Instantiate(klon, lokacija.position, transform.rotation);
+        Rigidbody Clone2 = (Rigidbody)Instantiate(klon2, lokacija2.position, transform.rotation);
+
+    }
+
+    void klon2(Rigidbody2D klon, Transform lokacija)
     {
         Rigidbody Clone = (Rigidbody)Instantiate(klon, lokacija.position, transform.rotation);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name == "player")
         {
@@ -41,8 +50,8 @@ public class boss_dmg : MonoBehaviour {
             }
             if(zivljenje == 1)
             {
-                klon(turretclone,turretlocation);
-                klon(turretclone,turretlocation2);
+                klon(turretclone,turretlocation, turretclone2, turretlocation2);
+                klon2(turretclone2,turretlocation2);
             }
         }
     }
