@@ -7,6 +7,10 @@ public class metek : MonoBehaviour {
     private Rigidbody2D taRigidBody;
     public float Cas;
 
+    public AudioClip zvokDie;
+    public LevelManager gameLevelManager;
+    private LifeManager lifeSystem;
+
     // Use this for initialization
     void Start () {
         igralec = GameObject.Find("player").transform;
@@ -25,11 +29,14 @@ public class metek : MonoBehaviour {
         Destroy(gameObject, Cas);
 	}
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.name == "player")
+        if (col.gameObject.name == "player")
         {
             Destroy(col.gameObject);
+            AudioSource.PlayClipAtPoint(zvokDie, transform.position);
+            gameLevelManager.Respawn();
+            lifeSystem.TakeLife();
         }
 
     }

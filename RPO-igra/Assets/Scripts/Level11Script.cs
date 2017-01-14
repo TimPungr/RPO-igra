@@ -3,24 +3,28 @@ using System.Collections;
 
 
 
-public class Level11Script : MonoBehaviour {
+public class Level11Script : MonoBehaviour
+{
     public int stTegaLv;
-    // Use this for initialization
 
-    void OnTriggerEnter2D(Collider2D other){
-		//if the object that triggered the event is tagged player
-		if (other.tag == "player") {
-			Application.LoadLevel(stTegaLv+1);
-		}
-		
-//		if (other.gameObject.transform.parent) {
-//			Destroy (other.gameObject.transform.parent.gameObject);
-//			
-//		} else {
-//			Destroy (other.gameObject);		
-//		}
-	}
-	
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "player")
+        {
+
+            PlayerPrefs.SetInt("LevUnlock", stTegaLv);
+
+            Application.LoadLevel(stTegaLv + 1);
+        }
+
+
+    }
+
+    public int StevilkaLevela()
+    {
+        return stTegaLv;
+    }
+
 }
 
 
