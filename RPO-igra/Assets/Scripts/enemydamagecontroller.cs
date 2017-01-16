@@ -10,10 +10,17 @@ public class enemydamagecontroller : MonoBehaviour {
 
     public float bounce = 5f;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    public Transform igralec;
+    public Transform respawn;
+
+
+    // Use this for initialization
+    void Start () {
+        respawn = GameObject.Find("respawntocka").transform;
+        igralec = GameObject.Find("player").transform;
+
+
+    }
 
 
     //public float skoda = 1f;
@@ -32,7 +39,8 @@ public class enemydamagecontroller : MonoBehaviour {
                 col.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, GetComponent<Rigidbody2D>().velocity.y + bounce);
             } else
             {
-               // Destroy(col.gameObject);
+                // Destroy(col.gameObject);
+                igralec.transform.position = respawn.position;
                 AudioSource.PlayClipAtPoint(zvokDie, transform.position);
                 gameLevelManager.Respawn();
                 lifeSystem.TakeLife();

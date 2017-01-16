@@ -11,6 +11,10 @@ public class LevelManager : MonoBehaviour
     public Text HighscoreText;
     public int skupaj;
 
+    public Transform igralec;
+
+    public Transform respawn;
+
     void Awake()
     {
         // Call the LevelManager and set the last level.
@@ -44,7 +48,7 @@ public class LevelManager : MonoBehaviour
     {
         gamePlayer.gameObject.SetActive(false);
         yield return new WaitForSeconds(respawnDelay);
-        gamePlayer.transform.position = gamePlayer.respawnPoint;
+        igralec.transform.position = respawn.position;
         gamePlayer.gameObject.SetActive(true);
     }
 

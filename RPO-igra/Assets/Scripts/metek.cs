@@ -11,17 +11,23 @@ public class metek : MonoBehaviour {
     public LevelManager gameLevelManager;
     private LifeManager lifeSystem;
 
+    public Transform respawn;
+
+
+
     // Use this for initialization
     void Start () {
         igralec = GameObject.Find("player").transform;
         taRigidBody = GetComponent<Rigidbody2D>();
+        gameLevelManager = FindObjectOfType<LevelManager>();
+        respawn = GameObject.Find("respawntocka").transform;
 
-       /* if (igralec.position.x < transform.position.x)
-        {
-            hitrost = -hitrost;
-        }*/
-	
-	}
+        /* if (igralec.position.x < transform.position.x)
+         {
+             hitrost = -hitrost;
+         }*/
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,13 +35,14 @@ public class metek : MonoBehaviour {
         Destroy(gameObject, Cas);
 	}
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name == "player")
         {
-            Destroy(col.gameObject);
+            igralec.transform.position = respawn.position;
+            //Destroy(col.gameObject);
             AudioSource.PlayClipAtPoint(zvokDie, transform.position);
-            gameLevelManager.Respawn();
+            //gameLevelManager.Respawn();
             lifeSystem.TakeLife();
         }
 
