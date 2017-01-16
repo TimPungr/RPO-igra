@@ -60,22 +60,23 @@ public class player_move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void FixedUpdate()
-    {
         if (!canMove)
         {
             return;
         }
 
-        natleh = Physics2D.Linecast(mytrans.position, tla.position,playerMask);
+        natleh = Physics2D.Linecast(mytrans.position, tla.position, playerMask);
         gibanje(Input.GetAxisRaw("Horizontal"));
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown("space"))
         {
             Jump();
         }
+
+    }
+
+    void FixedUpdate()
+    {
+       
     }
 
     public void Jump()
