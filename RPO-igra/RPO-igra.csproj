@@ -68,6 +68,7 @@
     <Compile Include="Assets\ObjectMoving\MovingObjX.cs" />
     <Compile Include="Assets\Scripts\CheckpointController.cs" />
     <Compile Include="Assets\Scripts\CoinScript.cs" />
+    <Compile Include="Assets\Scripts\DeletePrefs.cs" />
     <Compile Include="Assets\Scripts\DestroyScript.cs" />
     <Compile Include="Assets\Scripts\DialogueHolder.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
@@ -75,14 +76,21 @@
     <Compile Include="Assets\Scripts\Hover_nasprotnik.cs" />
     <Compile Include="Assets\Scripts\Level11Script.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\LifeManager.cs" />
     <Compile Include="Assets\Scripts\Nasprotnik_strelec.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\PreviousLevel.cs" />
+    <Compile Include="Assets\Scripts\TimeText.cs" />
+    <Compile Include="Assets\Scripts\UFOboss.cs" />
     <Compile Include="Assets\Scripts\boss.cs" />
     <Compile Include="Assets\Scripts\boss_dmg.cs" />
     <Compile Include="Assets\Scripts\enemydamagecontroller.cs" />
     <Compile Include="Assets\Scripts\hidden_trigger.cs" />
+    <Compile Include="Assets\Scripts\hidden_triggerClassic.cs" />
     <Compile Include="Assets\Scripts\kamera.cs" />
     <Compile Include="Assets\Scripts\leteci_nasprotnik.cs" />
     <Compile Include="Assets\Scripts\leteci_nasprotnik_sledeci.cs" />
+    <Compile Include="Assets\Scripts\lifePickup.cs" />
     <Compile Include="Assets\Scripts\metek.cs" />
     <Compile Include="Assets\Scripts\nasprotnik_strelec_staticen.cs" />
     <Compile Include="Assets\Scripts\osnovni_nasprotnik.cs" />
@@ -90,6 +98,7 @@
     <Compile Include="Assets\Scripts\premikanje.cs" />
     <Compile Include="Assets\Scripts\start.cs" />
     <Compile Include="Assets\Scripts\streljnaje.cs" />
+    <Compile Include="Assets\Scripts\timePlus.cs" />
     <Compile Include="Assets\Scripts\vrata.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
